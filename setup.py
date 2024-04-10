@@ -162,7 +162,8 @@ setup(
             'adcs_source = lemur.plugins.lemur_adcs.plugin:ADCSSourcePlugin',
             'entrust_issuer = lemur.plugins.lemur_entrust.plugin:EntrustIssuerPlugin',
             'entrust_source = lemur.plugins.lemur_entrust.plugin:EntrustSourcePlugin',
-            'azure_destination = lemur.plugins.lemur_azure_dest.plugin:AzureDestinationPlugin'
+            'azure_destination = lemur.plugins.lemur_azure_dest.plugin:AzureDestinationPlugin',
+            'pangea_vault_issuer = lemur.plugins.lemur_pangea_vault.plugin:PangeaVaultIssuerPlugin'
         ],
     },
     classifiers=[
