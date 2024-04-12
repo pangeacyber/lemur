@@ -86,7 +86,7 @@ class PangeaVaultIssuerPlugin(IssuerPlugin):
             "csr": csr,
             "issuer_item_id": issuer_id,
             "algorithm": algorithm,
-            "folder": "/lemur/csr/",
+            "folder": "/lemur/certificate/",
             "expiration": exp,
         }
         print("Create certificate. Data: ", json.dumps(data))
