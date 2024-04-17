@@ -70,9 +70,9 @@ class PangeaVaultIssuerPlugin(IssuerPlugin):
     def create_certificate(self, csr, issuer_options):
         # {'replacements': [Certificate(name=TimeTestAuthority5)],
         # 'rotation_policy': RotationPolicy(days=30, name=default),
-        # 'owner': 'secure@example.net', 'location': 'Los Gatos', 'notify': True, 'destinations': [], 'replaces': [Certificate(name=TimeTestAuthority5)], 'roles': [], 'state': 'California', 'notifications': [Notification(label=DEFAULT_SECURE_30_DAY), 
-        # Notification(label=DEFAULT_SECURE_15_DAY), Notification(label=DEFAULT_SECURE_2_DAY)], 'organizational_unit': 'Operations', 'extensions': {'sub_alt_names': {'names': <SubjectAlternativeName(<GeneralNames([<DNSName(value='*.test.example.net')>, <DNSName(value='www.test.example.net')>])>)>}}, 
-        # 'key_type': 'ECCPRIME256V1', 'common_name': 'test.example.net', 'country': 'US', 'dns_provider': None, 'organization': 'Netflix, Inc.', 'description': '', 'authority': 
+        # 'owner': 'secure@example.net', 'location': 'Los Gatos', 'notify': True, 'destinations': [], 'replaces': [Certificate(name=TimeTestAuthority5)], 'roles': [], 'state': 'California', 'notifications': [Notification(label=DEFAULT_SECURE_30_DAY),
+        # Notification(label=DEFAULT_SECURE_15_DAY), Notification(label=DEFAULT_SECURE_2_DAY)], 'organizational_unit': 'Operations', 'extensions': {'sub_alt_names': {'names': <SubjectAlternativeName(<GeneralNames([<DNSName(value='*.test.example.net')>, <DNSName(value='www.test.example.net')>])>)>}},
+        # 'key_type': 'ECCPRIME256V1', 'common_name': 'test.example.net', 'country': 'US', 'dns_provider': None, 'organization': 'Netflix, Inc.', 'description': '', 'authority':
 
         print(f"create_certificate issuer_options: {issuer_options}")
         print(f"create_certificate csr: {csr}")
@@ -117,8 +117,8 @@ class PangeaVaultIssuerPlugin(IssuerPlugin):
         # 'name': 'TimeTestAuthority1', 'state': 'California', 'sensitivity':
         # 'medium', 'signing_algorithm': 'sha256WithRSA', 'key_type': 'RSA2048',
         # 'owner': 'secure@example.com', 'validity_end': <Arrow [2044-02-20T15:31:36.774882+00:00]>,
-        # 'extensions': {'sub_alt_names': {'names': <SubjectAlternativeName(<GeneralNames([])>)>}, 'custom': []}, 
-        # 'plugin': {'slug': 'pangea-vault-issuer', 'plugin_object': <lemur.plugins.pangea_vault.plugin.PangeaVaultIssuerPlugin object at 0x113e07a60>, 'plugin_options': []}, 
+        # 'extensions': {'sub_alt_names': {'names': <SubjectAlternativeName(<GeneralNames([])>)>}, 'custom': []},
+        # 'plugin': {'slug': 'pangea-vault-issuer', 'plugin_object': <lemur.plugins.pangea_vault.plugin.PangeaVaultIssuerPlugin object at 0x113e07a60>, 'plugin_options': []},
         # 'common_name': 'AcommonName', 'validity_start': <Arrow [2024-02-20T15:31:36.774882+00:00]>, 'organization': 'Netflix',
         # 'type': 'root', 'validity_years': 20, 'creator': User(username=lemur)}
 
