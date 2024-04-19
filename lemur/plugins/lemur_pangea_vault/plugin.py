@@ -17,7 +17,7 @@ from lemur.certificates.models import Certificate
 
 
 class PangeaVaultIssuerPlugin(IssuerPlugin):
-    title = "PangeaVaultIssuer"
+    title = "Pangea Vault Issuer"
     slug = "pangea-vault-issuer"
     description = "Pangea Vault issuer plugin"
     version = vault.VERSION
@@ -153,6 +153,16 @@ class PangeaVaultIssuerPlugin(IssuerPlugin):
             "tags": ["lemur"]
         }
 
+        parent = options.get("parent", None)
+        if parent:
+            print("Parent info: ", parent.__dict__)
+            for role in parent.role:
+                print(f"Role: {role.__dict__}")
+            issuer_id = next(role for role in parent.role if role.name.startswith("pvi_")).name
+            # issuer_id = parent.id
+            data["issuer_item_id"] = issuer_id
+            print("Parent id: ", issuer_id)
+
         print("data: ", json.dumps(data))
         resp = requests.post(
             f"{self.vault_base_api}/v1/pki/generate",
@@ -163,12 +173,14 @@ class PangeaVaultIssuerPlugin(IssuerPlugin):
         print(f"On: create_authority. resp text: {resp.text}")
 
         resp.raise_for_status()
-        item_id = resp.json()["result"]["id"]
-        cert = resp.json()["result"]["certificate"]
+        result = resp.json()["result"]
+        item_id = result["id"]
+        cert = result["certificate"]
+        trust_chain = result.get("trust_chain", "")
         print(f"Pangea Vault CA id: {item_id}")
         role = {"username": options["creator"].username, "password": "", "name": item_id}
         print("Certificate: ", json.dumps(cert))
-        return cert, "", [role]
+        return cert, trust_chain, [role]
 
     def revoke_certificate(self, certificate: Certificate, reason):
         print("revoke_certificate. Certificate: ", certificate.__dict__, reason)
